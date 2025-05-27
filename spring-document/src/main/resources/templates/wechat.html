@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">文章标题</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: #333;
+            background-color: #fff;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0 15px;
+        }
+        .article-container {
+            max-width: 700px;
+            margin: 40px auto;
+        }
+        .article-title {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .article-meta {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 25px;
+        }
+        .cover-img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .article-content {
+            font-size: 17px;
+        }
+        .article-content p {
+            margin: 1em 0;
+        }
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .article-footer {
+            font-size: 13px;
+            color: #aaa;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="article-container">
+    <div class="article-title" th:text="${title}">这是文章标题</div>
+    <div class="article-meta">
+        作者：<span th:text="${author}">张三</span>　
+        日期：<span th:text="${date}">2025-05-20</span>
+    </div>
+    <img th:src="${coverImage}" alt="封面图片" class="cover-img" />
+
+    <div class="article-content" th:utext="${content}">
+        <p>这是文章正文内容。支持<strong>富文本</strong>、<em>换行</em>、图片插入等。</p>
+        <p>例如插入图片：</p>
+        <p><img src="https://img.picui.cn/free/2025/05/11/68206b08b0429.png" alt="示例图" /></p>
+    </div>
+
+    <div class="article-footer">
+        本文由公众号【你的公众号名】原创发布，转载请注明出处。
+    </div>
+</div>
+</body>
+</html>

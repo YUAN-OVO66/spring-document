@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}">公众号文章标题</title>
+    <style>
+        body {
+            font-family: "微软雅黑", Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px;
+            color: #333;
+            background-color: #fff;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 28px; /* 建议公众号用h2更合适，故此示例h1较大 */
+            color: #000;
+        }
+        h2 {
+            font-size: 22px;
+            color: #333;
+        }
+        h3 {
+            font-size: 18px;
+            color: #555;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 1em;
+        }
+        strong {
+            font-weight: 700;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 25px;
+        }
+        /* 模拟微信公众号常见的段落首行缩进 */
+        p {
+            text-indent: 2em;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 封面图片 -->
+<div th:if="${coverImage}">
+    <img th:src="${coverImage}" alt="封面图" />
+</div>
+
+<!-- 标题 -->
+<h1 th:text="${title}">文章标题</h1>
+
+<!-- 作者和日期 -->
+<div class="meta">
+    作者：<span th:text="${author}">作者</span> | 发布日期：<span th:text="${date}">发布日期</span>
+</div>
+
+<!-- 正文内容 -->
+<div th:utext="${content}">
+    <!-- 内容示例 -->
+    <p>这里是正文内容。</p>
+</div>
+
+</body>
+</html>
